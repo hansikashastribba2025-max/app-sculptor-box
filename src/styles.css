@@ -133,6 +133,7 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-body);
+    font-weight: 400;
   }
 
   h1,
@@ -140,16 +141,16 @@
   h3,
   h4 {
     font-family: var(--font-display);
-    font-weight: 800;
-    letter-spacing: -0.01em;
+    font-weight: 400; /* Archivo Black is already a 900-weight face */
+    letter-spacing: -0.02em;
   }
 }
 
 @utility eyebrow {
-  font-family: var(--font-display);
+  font-family: var(--font-heavy);
   font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.32em;
+  font-weight: 800;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
 }
 
