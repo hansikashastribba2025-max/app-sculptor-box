@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { ShoppingBag, Minus, Plus } from "lucide-react";
+import { ShoppingBag, Minus, Plus, Star } from "lucide-react";
 import bottle from "@/assets/tide-bottle.png";
 
 export const Route = createFileRoute("/")({
@@ -63,6 +63,53 @@ const PROFILE = [
   ["Best suited for", "All seasons"],
 ];
 
+const REVIEWS = [
+  {
+    name: "Aditya R.",
+    location: "Mumbai",
+    rating: 5,
+    title: "Clean, sharp, addictive",
+    body: "The salt-and-sage opening is unreal. I get compliments every single time I wear it to work.",
+  },
+  {
+    name: "Meher K.",
+    location: "Bengaluru",
+    rating: 5,
+    title: "Genuinely unisex",
+    body: "My partner and I share the bottle. It sits differently on each of us and somehow works both ways.",
+  },
+  {
+    name: "Rohan S.",
+    location: "Delhi",
+    rating: 4,
+    title: "Long evenings, no fade",
+    body: "Eight hours in and the driftwood-musk base is still there. Only wish it came in a travel size.",
+  },
+  {
+    name: "Ishita N.",
+    location: "Pune",
+    rating: 5,
+    title: "Worth every rupee",
+    body: "Smells far more expensive than it is. The packaging alone makes it feel like a gift to yourself.",
+  },
+];
+
+function Stars({ rating }: { rating: number }) {
+  return (
+    <div className="flex gap-1" aria-label={`${rating} out of 5 stars`}>
+      {Array.from({ length: 5 }, (_, i) => (
+        <Star
+          key={i}
+          aria-hidden="true"
+          className={
+            i < rating ? "size-4 fill-accent text-accent" : "size-4 text-muted-foreground/40"
+          }
+        />
+      ))}
+    </div>
+  );
+}
+
 function Wave() {
   return (
     <svg
@@ -99,6 +146,9 @@ function Index() {
             </a>
             <a href="#experience" className="transition-colors hover:text-foreground">
               Experience
+            </a>
+            <a href="#reviews" className="transition-colors hover:text-foreground">
+              Reviews
             </a>
           </nav>
           <a
@@ -166,7 +216,11 @@ function Index() {
             <img
               src={bottle}
               alt="SARKAR TIDE chess-inspired perfume bottle in deep blue glass"
-              className="mx-auto w-full max-w-md drop-shadow-[0_40px_80px_rgba(0,0,0,0.6)]"
+              width={777}
+              height={757}
+              fetchPriority="high"
+              decoding="async"
+              className="mx-auto h-auto w-full max-w-md drop-shadow-[0_40px_80px_rgba(0,0,0,0.6)]"
             />
             <figcaption className="mt-6 eyebrow text-muted-foreground">
               Official SARKAR packaging reference
@@ -270,6 +324,40 @@ function Index() {
             </div>
           ))}
         </dl>
+      </section>
+
+      {/* Reviews */}
+      <section id="reviews" className="deep-bg border-y border-border">
+        <div className="mx-auto max-w-7xl px-6 py-24">
+          <div className="text-center">
+            <p className="eyebrow text-muted-foreground">Customer Reviews</p>
+            <h2 className="mt-6 font-display text-4xl uppercase md:text-5xl">
+              Worn. Noticed. Remembered.
+            </h2>
+            <div className="mt-8 flex flex-col items-center gap-3">
+              <Stars rating={5} />
+              <p className="eyebrow text-muted-foreground">
+                4.8 average · 312 verified reviews
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-14 grid gap-6 md:grid-cols-2">
+            {REVIEWS.map((r) => (
+              <article
+                key={r.name}
+                className="border border-border bg-card p-8 transition-colors hover:border-primary"
+              >
+                <Stars rating={r.rating} />
+                <h3 className="mt-5 font-display text-xl uppercase tracking-wide">{r.title}</h3>
+                <p className="mt-4 leading-relaxed text-muted-foreground">{r.body}</p>
+                <p className="mt-6 eyebrow text-primary">
+                  {r.name} · {r.location} · Verified buyer
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* Buy */}

@@ -1,6 +1,10 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
+@import "@fontsource/archivo-black/400.css";
+@import "@fontsource-variable/archivo";
+@import "@fontsource/barlow/400.css";
+@import "@fontsource/barlow/600.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -98,7 +102,8 @@
   --sidebar-border: oklch(1 0 0 / 14%);
   --sidebar-ring: oklch(0.62 0.14 240);
 
-  --font-display: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Archivo Black", "Archivo Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-heavy: "Archivo Variable", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Barlow", ui-sans-serif, system-ui, sans-serif;
 
   --gradient-hero: radial-gradient(
@@ -115,6 +120,7 @@
   --color-ink: var(--ink);
   --color-deep: var(--deep);
   --font-display: var(--font-display);
+  --font-heavy: var(--font-heavy);
   --font-body: var(--font-body);
 }
 
@@ -127,6 +133,7 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-body);
+    font-weight: 400;
   }
 
   h1,
@@ -134,16 +141,16 @@
   h3,
   h4 {
     font-family: var(--font-display);
-    font-weight: 800;
-    letter-spacing: -0.01em;
+    font-weight: 400; /* Archivo Black is already a 900-weight face */
+    letter-spacing: -0.02em;
   }
 }
 
 @utility eyebrow {
-  font-family: var(--font-display);
+  font-family: var(--font-heavy);
   font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.32em;
+  font-weight: 800;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
 }
 
