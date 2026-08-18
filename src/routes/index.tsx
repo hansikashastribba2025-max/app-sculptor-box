@@ -213,7 +213,11 @@ function Index() {
             <img
               src={bottle}
               alt="SARKAR TIDE chess-inspired perfume bottle in deep blue glass"
-              className="mx-auto w-full max-w-md drop-shadow-[0_40px_80px_rgba(0,0,0,0.6)]"
+              width={777}
+              height={757}
+              fetchPriority="high"
+              decoding="async"
+              className="mx-auto h-auto w-full max-w-md drop-shadow-[0_40px_80px_rgba(0,0,0,0.6)]"
             />
             <figcaption className="mt-6 eyebrow text-muted-foreground">
               Official SARKAR packaging reference
