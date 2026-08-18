@@ -147,6 +147,9 @@ function Index() {
             <a href="#experience" className="transition-colors hover:text-foreground">
               Experience
             </a>
+            <a href="#reviews" className="transition-colors hover:text-foreground">
+              Reviews
+            </a>
           </nav>
           <a
             href="#buy"
