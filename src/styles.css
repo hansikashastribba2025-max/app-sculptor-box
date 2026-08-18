@@ -120,6 +120,7 @@
   --color-ink: var(--ink);
   --color-deep: var(--deep);
   --font-display: var(--font-display);
+  --font-heavy: var(--font-heavy);
   --font-body: var(--font-body);
 }
 
