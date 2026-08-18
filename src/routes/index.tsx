@@ -326,6 +326,40 @@ function Index() {
         </dl>
       </section>
 
+      {/* Reviews */}
+      <section id="reviews" className="deep-bg border-y border-border">
+        <div className="mx-auto max-w-7xl px-6 py-24">
+          <div className="text-center">
+            <p className="eyebrow text-muted-foreground">Customer Reviews</p>
+            <h2 className="mt-6 font-display text-4xl uppercase md:text-5xl">
+              Worn. Noticed. Remembered.
+            </h2>
+            <div className="mt-8 flex flex-col items-center gap-3">
+              <Stars rating={5} />
+              <p className="eyebrow text-muted-foreground">
+                4.8 average · 312 verified reviews
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-14 grid gap-6 md:grid-cols-2">
+            {REVIEWS.map((r) => (
+              <article
+                key={r.name}
+                className="border border-border bg-card p-8 transition-colors hover:border-primary"
+              >
+                <Stars rating={r.rating} />
+                <h3 className="mt-5 font-display text-xl uppercase tracking-wide">{r.title}</h3>
+                <p className="mt-4 leading-relaxed text-muted-foreground">{r.body}</p>
+                <p className="mt-6 eyebrow text-primary">
+                  {r.name} · {r.location} · Verified buyer
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Buy */}
       <section id="buy" className="hero-bg border-t border-border">
         <div className="mx-auto grid max-w-7xl items-center gap-14 px-6 py-24 lg:grid-cols-2">
