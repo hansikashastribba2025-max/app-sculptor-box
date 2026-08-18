@@ -63,6 +63,53 @@ const PROFILE = [
   ["Best suited for", "All seasons"],
 ];
 
+const REVIEWS = [
+  {
+    name: "Aditya R.",
+    location: "Mumbai",
+    rating: 5,
+    title: "Clean, sharp, addictive",
+    body: "The salt-and-sage opening is unreal. I get compliments every single time I wear it to work.",
+  },
+  {
+    name: "Meher K.",
+    location: "Bengaluru",
+    rating: 5,
+    title: "Genuinely unisex",
+    body: "My partner and I share the bottle. It sits differently on each of us and somehow works both ways.",
+  },
+  {
+    name: "Rohan S.",
+    location: "Delhi",
+    rating: 4,
+    title: "Long evenings, no fade",
+    body: "Eight hours in and the driftwood-musk base is still there. Only wish it came in a travel size.",
+  },
+  {
+    name: "Ishita N.",
+    location: "Pune",
+    rating: 5,
+    title: "Worth every rupee",
+    body: "Smells far more expensive than it is. The packaging alone makes it feel like a gift to yourself.",
+  },
+];
+
+function Stars({ rating }: { rating: number }) {
+  return (
+    <div className="flex gap-1" aria-label={`${rating} out of 5 stars`}>
+      {Array.from({ length: 5 }, (_, i) => (
+        <Star
+          key={i}
+          aria-hidden="true"
+          className={
+            i < rating ? "size-4 fill-accent text-accent" : "size-4 text-muted-foreground/40"
+          }
+        />
+      ))}
+    </div>
+  );
+}
+
 function Wave() {
   return (
     <svg
