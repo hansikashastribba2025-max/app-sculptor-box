@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { ShoppingBag, Minus, Plus } from "lucide-react";
+import { ShoppingBag, Minus, Plus, Star } from "lucide-react";
 import bottle from "@/assets/tide-bottle.png";
 
 export const Route = createFileRoute("/")({
