@@ -279,8 +279,11 @@ function Index() {
           <img
             src={bottle}
             alt="TIDE parfum bottle presented against a deep blue backdrop"
-            className="mx-auto w-full max-w-sm"
+            width={777}
+            height={757}
+            className="mx-auto h-auto w-full max-w-sm"
             loading="lazy"
+            decoding="async"
           />
           <div>
             <p className="eyebrow text-muted-foreground">
@@ -371,8 +374,11 @@ function Index() {
             <img
               src={bottle}
               alt="TIDE 100 ml parfum bottle"
-              className="mt-10 w-52"
+              width={777}
+              height={757}
+              className="mt-10 h-auto w-52"
               loading="lazy"
+              decoding="async"
             />
           </div>
 
